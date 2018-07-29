@@ -1,0 +1,117 @@
+.main
+	background-image: url(../img/header/header-bg.jpg)
+	background-size: cover
+
+.header
+	margin-top: 12px
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: 100%
+
+.main-container
+	align-items: center
+
+.header__menu
+	flex: 1
+	text-align: right
+
+.nav
+	display: inline-block
+	vertical-align: middle
+
+.nav__list
+	width: 100%
+
+.nav__item
+	white-space: nowrap
+	display: inline-block
+	vertical-align: middle
+
+.nav__item-link
+	font-family: 'Ubuntu Medium'
+	text-transform: uppercase
+	font-size: 13px
+	line-height: 30px
+	color: $light-color
+	display: inline-block
+	vertical-align: middle
+	transition: .3s
+
+.nav__item-link:hover
+	color: $btn-color
+
+.nav__item:not(:last-child)::after
+	content: ""
+	display: inline-block
+	vertical-align: middle
+	width: 4px
+	height: 4px
+	border-radius: 50%
+	background: $light-color
+	margin: 0 14px
+
+.btn
+  display: inline-block
+  vertical-align: middle
+  padding: 12px 15px
+  font-size: 13px
+  font-family: 'Ubuntu Medium'
+  background: $btn-color
+  text-transform: uppercase
+  color: $light-color
+  text-align: center
+  border: 1px solid transparent
+  transition: 0.3s
+  cursor: pointer
+  outline: none
+  border-radius: 5px
+  margin-left: 15px
+
+.btn:hover
+	background: $btn-active
+	color: $btn-color
+
+.main__content
+	display: flex
+	flex: 1
+	justify-content: space-between
+	align-items: center
+	padding-bottom: 10%
+
+.main__right
+	margin-top: 70px
+	margin-left: 12px
+
+.main__right-title
+	color: $btn-active
+	font-family: 'Gagalin'
+	font-size: 72px
+	margin-bottom: 30px
+
+.main__right-subtitle
+	color: $light-color
+	font-family: 'Lifehack'
+	font-size: 65px
+
+.main__arrow
+	width: 100px
+	height: 100px
+	display: flex
+	align-items: center
+	justify-content: center
+	background: transparent
+	border: 0
+	outline: 0
+
+.main__arrow-icon
+	width: 50px
+	height: 50px
+	fill: $light-color
+	stroke: grey
+	transition: .3s
+
+.main__arrow-icon:hover
+	cursor: pointer
+	width: 70px
+	height: 70px
