@@ -1,0 +1,45 @@
+.bar__list
+	position: fixed
+	top: 90px
+	right: 50px
+
+
+.bar__item
+	margin-bottom: 5px
+
+.bar__link
+	width: 16px
+	height: 16px
+	display: block
+	position: relative
+
+.bar__link:after
+	width: 6px
+	height: 6px
+	background: $light-color
+	content: ""
+	display: block
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	border-radius: 50%
+
+.bar__link:before
+	border-radius: 50%
+	border: 1px solid $light-color
+	opacity: 0
+	transition: .3s
+	content: ""
+	display: block
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+
+.bar__link:hover:before
+	width: 16px
+	height: 16px
+	opacity: 1
+
+
