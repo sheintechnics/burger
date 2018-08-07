@@ -12,6 +12,7 @@ var gulp          = require('gulp'),
 		notify        = require("gulp-notify"),
 		rsync         = require('gulp-rsync'),
 		sourcemaps	  = require('gulp-sourcemaps');
+		cssunit       = require('gulp-css-unit')
 
 gulp.task('browser-sync', function() {
 	browsersync({
@@ -35,6 +36,11 @@ gulp.task('styles', function() {
 	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('app/css'))
 	.pipe(browsersync.reload( {stream: true} ))
+  .pipe(cssunit({
+    type     :    'px-to-rem',
+    rootSize :    16
+}))
+.pipe(gulp.dest('app/css/'));   
 });
 
 gulp.task('js', function() {

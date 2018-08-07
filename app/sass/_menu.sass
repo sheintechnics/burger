@@ -1,0 +1,62 @@
+.menu
+	background: url(../img/menu/menu-bg.jpg) center no-repeat
+	background-size: cover
+	position: relative
+
+.menu__title
+	color: $light-color
+	position: absolute
+	top: 100px
+	left: 94px
+
+.menu__accordeon
+	position: absolute
+	right: 0
+	top: 0
+	bottom: 0
+	display: flex
+
+.menu__accordeon-item
+	height: 100%
+	display: flex
+
+.menu__accordeon-link
+	display: flex
+	height: 100%
+	width: 80px
+	align-items: flex-end
+	justify-content: center
+	background-position: center center
+	background-repeat: no-repeat
+	background-size: cover
+
+.menu__accordeon-title
+	font-family: Gagalin
+	font-size: 40px
+	color: $light-color
+	text-transform: uppercase
+	white-space: nowrap
+	transform: rotate(-90deg)
+	margin-bottom: 165px
+
+.menu__accordeon-content
+	height: 100%
+	background-color: $dark-overlay
+	opacity: 0.93
+	width: 0
+	overflow: hidden
+
+.menu__accordeon-text
+	color: $light-color
+	padding: 50px 50px
+	line-height: 2
+
+.menu__accordeon-item--active
+	.menu__accordeon-link
+		.menu__accordeon-title
+			color: $btn-active
+	.menu__accordeon-content
+		width: 550px
+		@include tablets
+			width: 100%
+

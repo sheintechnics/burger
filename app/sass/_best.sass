@@ -27,8 +27,10 @@
 
 .best__item-desc
 	white-space: pre-line
-	width: 281px
+	max-width: 281px
 	opacity: 0.8
 	color: $title-dark
 	font-size: 13px
 	line-height: 24.02px
+	@include tablets
+		white-space: normal

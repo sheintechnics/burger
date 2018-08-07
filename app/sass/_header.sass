@@ -15,6 +15,8 @@
 .header__menu
 	flex: 1
 	text-align: right
+	@include tablets
+		display: none
 
 .nav
 	display: inline-block
@@ -50,7 +52,9 @@
 	border-radius: 50%
 	background: $light-color
 	margin: 0 14px
-
+.cta
+	@include tablets
+		margin-right: 85px
 .btn
   display: inline-block
   vertical-align: middle
@@ -78,21 +82,31 @@
 	justify-content: space-between
 	align-items: center
 	padding-bottom: 10%
+	@include tablets
+		flex-direction: column
+		align-items: center
+
 
 .main__right
 	margin-top: 70px
 	margin-left: 12px
+	@include tablets
+		margin-top: 0
 
 .section-title
 	color: $btn-active
 	font-family: 'Gagalin'
 	font-size: 72px
 	margin-bottom: 30px
+	@include tablets
+		text-align: center
 
 .main__right-subtitle
 	color: $light-color
 	font-family: 'Lifehack'
 	font-size: 65px
+	@include tablets
+		text-align: center
 
 .main__arrow
 	width: 100px

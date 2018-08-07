@@ -1,0 +1,120 @@
+.order
+	background: url(../img/order/order-bg.jpg) center no-repeat
+	background-size: cover
+	align-items: center
+
+.order__title
+	text-align: center
+
+.form
+	display: flex
+	justify-content: space-between
+	@include tablets
+		flex-direction: column
+		align-items: center
+
+.form__col
+	width: 50%
+	margin-right: 20px
+
+.form__row
+	display: flex
+	margin-bottom: 20px
+
+.form__item
+	flex: 1
+	margin-right: 20px
+
+.form__item:last-child
+	margin: 0
+
+.form__label
+	color: $light-color
+	margin-bottom: 10px
+
+.form__radio-text
+	color: $light-color
+
+.form__input
+	border: 1px solid transparent
+	border-radius: 5px
+	width: 100%
+	padding: 6.5px 10px
+	overflow: visible
+	font-size: 14px
+
+.form__input:focus
+	border: 1px solid $btn-active
+	outline: 0
+	outtline-offset: 0
+
+.form__input-textarea
+	height: 110px
+	resize: none
+
+.form__radio
+	display: flex
+	margin-right: 20px
+	align-items: center
+
+.form__radio-el, .form__checkbox-el
+	position: absolute
+	clip: rect(0 0 0 0)
+	width: 1px
+	height: 1px
+	overflow: hidden
+
+.form__radio-fake
+	position: relative
+	width: 16px
+	height: 16px
+	border-radius: 50%
+	background: $light-color
+	margin-right: 10px
+
+.form__radio-fake:after 
+	content: ""
+	display: block
+	width: 0
+	height: 0
+	background: $btn-color
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	border-radius: 50%
+	transition: .3s
+
+.form__radio-el:checked + .form__radio-fake:after 
+	width: 8px
+	height: 8px
+
+.form__checkbox
+	display: flex
+	align-items: center
+
+.form__checkbox-fake
+  width: 16px
+  height: 16px
+  background: $light-color
+  position: relative
+  margin-right: 10px
+
+.form__checkbox-el:checked + .form__checkbox-fake:after
+  content: ""
+  background: url("../img/order/checked.svg") 50% no-repeat transparent
+  background-size: contain
+  width: 15px
+  height: 12px
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+
+.form__button-clear
+  padding-left: 0
+  padding-right: 0
+  text-transform: none
+  font-family: 'Ubuntu Light'
+  background: transparent
+  padding: 12px 15px
