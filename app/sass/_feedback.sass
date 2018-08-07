@@ -13,6 +13,9 @@
 .feedback__item
 	width: 25%
 	height: 50%
+	@include tablets
+		width: 50%
+		height: 25%
 
 .feedback__wrap
 	position: relative
@@ -50,6 +53,8 @@
 	transition: 0.5s
 	padding: 50px 19px
 	opacity: 0
+	@include tablets
+		text-align: center
 
 .feedback__name
 	color: $light-color
