@@ -9,7 +9,11 @@
   right: 36px
   display: none
   @include tablets
-  	display: flex
+    display: flex
+    position: fixed
+    z-index: 200
+    top: 36px
+    right: 36px
 
 .hamburger-menu__bars 
   &, &:before, &:after
@@ -28,3 +32,13 @@
   	top: 0
   &:after
   	bottom: 0
+
+.hamburger-menu-link.is-active 
+  .hamburger-menu__bars
+    background: transparent
+    &:before
+      transform: translateY(10px) translateX(0) rotate(45deg)
+      border-radius: 5px
+    &:after
+      transform: translateY(-7px) translateX(0) rotate(-45deg)
+      border-radius: 5px
