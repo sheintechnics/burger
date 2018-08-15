@@ -1,0 +1,60 @@
+.footer
+	background: url(../img/footer/footer-bg.jpg) center bottom no-repeat
+	background-size: cover
+	position: absolute
+	bottom: 0
+	left: 0
+	right: 0
+
+.footer__container
+	display: flex
+	flex-direction: row
+	align-items: center
+	@include phones
+		flex-direction: column
+		text-align: center
+		margin-top: 10px
+		margin-bottom: 20px
+		
+
+.footer__contacts
+	width: 50%
+	padding: 12px 0
+	@include phones
+	width: auto
+
+.footer__adress
+	color: $light-color
+	margin-bottom: 10px
+
+.footer__phone
+	font-family: 'Ubuntu Bold'
+	color: $btn-color
+
+.footer__socials
+	width: 50%
+	text-align: right
+	@include phones
+		width: auto
+
+.socials__list
+	position: relative
+
+.socials__item
+	display: inline-block
+	vertical-align: middle
+	margin-left: 20px
+
+.socials__item:first-child
+	margin: 0
+
+.socials__link
+	opacity: .6
+	transition: .7s
+
+.social__icon
+	width: 20px
+	height: 20px
+
+.socials__link:hover
+	opacity: 1

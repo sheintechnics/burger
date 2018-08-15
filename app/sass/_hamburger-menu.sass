@@ -1,0 +1,59 @@
+.hamburger-menu
+  position: fixed
+  left: -9999px
+  right: 0
+  background: $title-dark2
+  align-items: center
+  justify-content: center
+  display: none
+  z-index: 10
+  transition: opacity .3s
+  height: 100vh
+  &.is-active
+    display: flex
+    opacity: 1
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    z-index: 20
+
+@keyframes pulse
+  from
+    transform: scale3d(1, 1, 1)
+
+  50%
+    transform: scale3d(1.05, 1.05, 1.05)
+
+  to
+    transform: scale3d(1, 1, 1)
+
+.pulse, .pulse:after
+  animation: pulse 1s
+
+.nav__list--hamburger
+  display: flex
+  flex-direction: column
+
+.nav__item--hamburger
+  display: flex
+  flex-direction: column
+  text-align: center
+
+.nav__item--hamburger:not(:last-child)::after
+  content: ""
+  display: inline-block
+  vertical-align: middle
+  width: 5px
+  height: 5px
+  border-radius: 50%
+  background: $light-color
+  margin: 20px auto
+
+.nav__link
+  font-family: 'Ubuntu Medium'
+  text-transform: uppercase
+  color: $light-color
+  font-size: 25px
+  &:hover
+    text-decoration: underline
