@@ -5,6 +5,9 @@
 
 .order__title
 	text-align: center
+	@include phones
+		font-size: 60px
+		margin-top: 20px
 
 .form
 	display: flex
@@ -16,10 +19,19 @@
 .form__col
 	width: 50%
 	margin-right: 20px
+	@include phones
+		width: 100%
+		margin: 0
 
 .form__row
 	display: flex
 	margin-bottom: 20px
+	@include phones
+		justify-content: center
+
+.form__row--40
+	@include phones
+		margin-bottom: 40px
 
 .form__item
 	flex: 1

@@ -16,11 +16,15 @@
 	right: -32px
 	svg
 		transform: rotate(-90deg)
+	@include tablets
+		right: 20px
 
 .slider__btn-prev
 	left: -32px
 	svg
 		transform: rotate(90deg)
+	@include tablets
+		left: 20px
 
 .slider__arrow
 	width: 100%
@@ -30,6 +34,10 @@
 	position: relative
 	display: flex
 	padding-bottom: 85px
+	@include tablets
+		flex-direction: column
+		padding: 0
+		padding-top: 80px
 
 .ingredients
 	position: absolute
@@ -43,6 +51,9 @@
 	flex-direction: column
 	justify-content: center
 	align-items: center
+	@include tablets
+		top: 0
+		left: 0
 
 .ingridients__icon
 	height: 60%
@@ -60,11 +71,19 @@
 	position: absolute
 	bottom: 0
 	opacity: .5
+	@include tablets
+		top: 0
+		right: 0
+		bottom: auto
+		left: auto
 
 .burger-weight__measure
 	background: url(../img/slider/kkal-icon.svg) 50% no-repeat
-	width: 60px
-	height: 60px
+	width: 65px
+	height: 65px
+	@include smallphones
+		width: 80px
+		height: 80px
 
 .burger-weight__unit
 	position: absolute
@@ -76,6 +95,8 @@
 	font-family: Gagalin
 	text-transform: uppercase
 	font-size: 20px
+	@include smallphones
+		bottom: 40px
 
 .burger-weight__desc
 	text-align: center
@@ -91,24 +112,40 @@
 
 .slider__img
 	min-width: 100%
+	@include tablets
+		min-width: 65%
+	@include phones
+		max-width: 40%
 
 .slider__left
 	flex: 1
 
+.slider__right
+	@include tablets
+		text-align: center
+
 .section-title--white
 	color: $light-color
+	@include tablets
+		white-space: pre-line
+		line-height: 70px
 
 .slider-text
 	p
 		line-height: 24px
 		color: $light-color
-		white-space: pre-line
+
 		font-size: 13px
 		margin-bottom: 36px
+	@include tablets
+		max-width: 60%
+		margin: 0 auto
 
 .slider__options
 	display: flex
 	align-items: flex-end
+	@include tablets
+		justify-content: center
 
 .slider__price
 	display: flex
@@ -160,7 +197,13 @@
 	height: 45px
 
 .ingredients__close
-	display: none
+	position: relative
+	left: 225px
+	bottom: 115px
+
+.ingridients__close-btn
+	width: 15px
+	height: 15px
 
 .ingredients__text
 	font-family: 'Ubuntu Medium'

@@ -7,15 +7,33 @@
 .best__title
 	color: $title-dark
 	margin-bottom: 55px
+	@include phones
+		margin-top: 50px
 
 .best__list
 	display: flex
+	@include phones
+		flex-direction: column
+
 .best__item
 	padding: 0 15px
+	display: flex
+	@include phones
+		flex-direction: row
+		width: 100%
+		margin-bottom: 50px
  
 .best__item-img
 	min-height: 90px
 	margin-bottom: 33px
+	@include phones
+		width: 30%
+		margin-right: 30px
+
+.best__item-text
+	@include phones
+		width: 65%
+		text-align: left
 
 .best__item-tittle
 	color: $title-dark
@@ -24,6 +42,8 @@
 	line-height: 28.14px
 	letter-spacing: -0.6px
 	margin-bottom: 13px
+	@include phones
+		font-size: 20px
 
 .best__item-desc
 	white-space: pre-line
@@ -34,3 +54,6 @@
 	line-height: 24.02px
 	@include tablets
 		white-space: normal
+	@include phones
+		white-space: normal
+		max-width: 300px

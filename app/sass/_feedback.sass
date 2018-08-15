@@ -55,12 +55,16 @@
 	opacity: 0
 	@include tablets
 		text-align: center
+	@include phones
+		padding: 20px 10px
 
 .feedback__name
 	color: $light-color
 	font-family: 'Gagalin'
 	font-size: 14px
 	margin-bottom: 30px
+	@include tablets
+		margin-bottom: 10px
 
 .feedback__desc
 	color: $light-color
@@ -68,6 +72,13 @@
 	line-height: 24px
 	white-space: pre-line
 	margin-bottom: 17px
+	@include tablets
+		font-size: 10px
+		line-height: 16px
+		white-space: normal
+		margin-bottom: 10px
+	@include phones
+		font-size: 10px
 
 .feedback__btn
   border-radius: 5px
