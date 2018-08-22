@@ -122,4 +122,27 @@ $(document).ready(function() {
     })
   };
   verticalAcco();
+
+  /*Slider*/
+  let owlCarousel = () => {
+    const burgerCarousel = $(".slider__list").owlCarousel({
+      items: 1,
+      nav: true,
+      navContainer: $(".slider__controls"),
+      navText: ["", ""],
+      loop: true
+    });
+
+    $(".slider__btn-next").on("click", e => {
+      e.preventDefault();
+      burgerCarousel.trigger("next.owl.carousel");
+    });
+
+    $(".slider__btn-prev").on("click", e => {
+      e.preventDefault();
+      burgerCarousel.trigger("prev.owl.carousel");
+    });
+  };
+
+  owlCarousel();
 });
