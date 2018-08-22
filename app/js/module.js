@@ -56,4 +56,33 @@ $(document).ready(function() {
   });
 
   hamburger.init();
+
+  /*horaccordeon*/
+  let teamAccoJS = () => {
+    let oTeamLink = document.querySelectorAll(".team__accordeon-link");
+
+    oTeamLink.forEach(function(personName) {
+
+      personName.addEventListener("click", function(e) {
+        e.preventDefault();
+        let activePerson = document.querySelector(".team__accordeon-item.is-active");
+
+        if (activePerson) {
+          let teamAccordeonDesc = activePerson.querySelector(".team__accordeon-desc")
+
+          teamAccordeonDesc.style.height = "0px";
+          activePerson.classList.remove("is-active");
+        }
+
+        if (!activePerson || activePerson.querySelector(".team__accordeon-link") !== this) {
+          let currentPerson = this.closest(".team__accordeon-item");
+          currentPerson.classList.add("is-active");
+
+          let currentPersonInfo = currentPerson.querySelector(".team__accordeon-desc");
+          currentPersonInfo.style.height = currentPersonInfo.scrollHeight + "px";
+        }
+      })
+    })
+  };
+  teamAccoJS();
 });
