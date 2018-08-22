@@ -85,4 +85,41 @@ $(document).ready(function() {
     })
   };
   teamAccoJS();
+
+  /*veraccordeon*/
+  let verticalAcco = () => {
+    let calculateWidth = () => {
+      let windowWidth = $(window).width();
+      let links = $(".menu__accordeon-link");
+      let linksWidth = links.width();
+      let reqWidth = windowWidth - linksWidth * links.length;
+      return reqWidth > 550 ? 550 : reqWidth;
+    };
+    let oTeamLink = document.querySelectorAll(".menu__accordeon-link");
+    oTeamLink.forEach(function(personName) {
+
+      personName.addEventListener("click", function(e) {
+        e.preventDefault();
+        let activePerson = document.querySelector(".menu__accordeon-item.active");
+        // let otherPerson = document.querySellectorAll(".menu__accordeon-item");
+
+        if (activePerson) {
+          let teamAccordeonDesc = activePerson.querySelector(".menu__accordeon-content");
+
+          teamAccordeonDesc.style.width = "0px";
+          activePerson.classList.remove("active");
+        }
+
+        if (!activePerson || activePerson.querySelector(".menu__accordeon-link") !== this) {
+          let currentPerson = this.closest(".menu__accordeon-item");
+          currentPerson.classList.remove("hidden");
+          currentPerson.classList.add("active");
+
+          let currentPersonInfo = currentPerson.querySelector(".menu__accordeon-content");
+          currentPersonInfo.style.width = calculateWidth() + "px";
+        }
+      })
+    })
+  };
+  verticalAcco();
 });
