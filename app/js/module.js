@@ -160,7 +160,7 @@ $(document).ready(function() {
     // $("html,body").css("overflow","inherit");
   });
 
-  /*AJAX*/
+  /*AJAX form*/
   var ajaxForm = function (mainform) {
     let formData = new FormData();
       formData.append("name", mainform.elements.name.value);
