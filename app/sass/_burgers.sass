@@ -201,6 +201,12 @@
 	position: relative
 	left: 225px
 	bottom: 115px
+	opacity: 0
+	@include tablets
+		opacity: 1
+	@include phones
+		opacity: 1
+
 
 .ingridients__close-btn
 	width: 15px

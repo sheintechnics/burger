@@ -145,4 +145,16 @@ $(document).ready(function() {
   };
 
   owlCarousel();
+  
+  /*Modal*/
+  $('.feedback__btn').on("click", function(e){
+    e.preventDefault();
+    $('.overlay-modal').show();
+    // $("html,body").css("overflow","hidden");
+  });
+  $('.modal-feedback__close').on("click", function(e){
+    e.preventDefault();
+    $('.overlay-modal').hide();
+    // $("html,body").css("overflow","inherit");
+  });
 });
