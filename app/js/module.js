@@ -157,4 +157,49 @@ $(document).ready(function() {
     $('.overlay-modal').hide();
     // $("html,body").css("overflow","inherit");
   });
+
+  /*AJAX*/
+  var ajaxForm = function (mainform) {
+    let formData = new FormData();
+      formData.append("name", mainform.elements.name.value);
+      formData.append("phone", mainform.elements.phone.value);
+      formData.append("comment", mainform.elements.comment.value);
+      formData.append("to", "kur.ser@mail.ru");
+    let url = "https://webdev-api.loftschool.com/sendmail";
+
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = "json";
+    xhr.open("POST", url);
+    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    xhr.send(formData);
+    //xhr.send(JSON.stringify(data));
+    return xhr;
+  }
+
+  var submitForm = function (e){
+    e.preventDefault();
+    var form = e.target;
+    let request = ajaxForm(mainform);
+
+    request.addEventListener('load', () => {
+      if (request.status >= 400) {
+        let content = 'Ошибка соединения с сервером, попробуйте позже.';
+        $('.modal-feedback__content').text(content + ' Ошибка ' + request.status + '!');
+        $('.modal-feedback__title').text('Результат отправки');
+        $('.overlay-modal').show();
+      } else if (request.response.status) {
+        let content = request.response.message;
+        $('.modal-feedback__content').text(content);
+        $('.modal-feedback__title').text('Результат отправки');
+        $('.overlay-modal').show();
+      } else {
+        let content = request.response.message;
+        $('.modal-feedback__content').text(content);
+        $('.modal-feedback__title').text('Результат отправки');
+        $('.overlay-modal').show();
+      }
+    });
+  }
+  let myform = document.querySelector('#mainform');
+  myform.addEventListener('submit', submitForm);
 });
