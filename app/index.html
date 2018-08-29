@@ -16,24 +16,24 @@
 <body>
 	<div class="wrapper">
 		<div id="content">
-			<section class="section main">
+			<section class="section is-active main">
 				<div class="container main-container">
 					<header class="header">
 						<a class="logo" href="#"><img src="img/header/logo.png" alt="Мр.Бургер"></a>
 						<div class="header__menu">
 							<nav class="nav">
 								<ul class="nav__list">
-									<li class="nav__item"><a href="#two" class="nav__item-link">О нас</a></li>
-									<li class="nav__item"><a href="#three" class="nav__item-link">Бургеры</a></li>
-									<li class="nav__item"><a href="#four" class="nav__item-link">Команда</a></li>
-									<li class="nav__item"><a href="#five" class="nav__item-link">Меню</a></li>
-									<li class="nav__item"><a href="#six" class="nav__item-link">Отзывы</a></li>
-									<li class="nav__item"><a href="#seven" class="nav__item-link">Контакты</a></li>
+									<li class="nav__item"><a href="#" class="nav__item-link" data-scroll-to="1">О нас</a></li>
+									<li class="nav__item"><a href="#" class="nav__item-link" data-scroll-to="2">Бургеры</a></li>
+									<li class="nav__item"><a href="#" class="nav__item-link" data-scroll-to="3">Команда</a></li>
+									<li class="nav__item"><a href="#" class="nav__item-link" data-scroll-to="4">Меню</a></li>
+									<li class="nav__item"><a href="#" class="nav__item-link" data-scroll-to="5">Отзывы</a></li>
+									<li class="nav__item"><a href="#" class="nav__item-link" data-scroll-to="8">Контакты</a></li>
 								</ul>
 							</nav>
 						</div>
 						<div class="cta">
-							<button class="btn btn--active">Заказать</button>
+							<button class="btn btn--active" data-scroll-to="6">Заказать</button>
 						</div>
 					</header>
 					<div class="main__content">
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 					<button class="main__arrow">
-						<svg class="main__arrow-icon">
+						<svg class="main__arrow-icon" data-scroll-to="1">
 							<use xlink:href="img/sprite.svg#arrow"></use>
 						</svg>
 					</button>
@@ -531,19 +531,6 @@
 						</div>
 					</li>
 				</ul>
-				<div class="overlay-modal" id="overlay-modal">
-					<div class="modal-feedback">
-						<a href="#" class="modal-feedback__close">
-							<svg class="modal__close-btn">
-								<use xlink:href="img/sprite.svg#close"></use>
-							</svg>
-						</a>
-						<div class="modal-feedback__inner">
-							<div class="modal-feedback__title"></div>
-							<div class="modal-feedback__content"></div>
-						</div>
-					</div>
-				</div>
 			</section>
 			<section class="section work">
 				<h2 class="section-title work__title">Как мы работаем</h2>
@@ -716,15 +703,29 @@
 			</div>
 		</div>
 		<ul class="bar__list">
-			<li class="bar__item"><a href="#" class="bar__link"></a></li>
-			<li class="bar__item"><a href="#two" class="bar__link"></a></li>
-			<li class="bar__item"><a href="#" class="bar__link"></a></li>
-			<li class="bar__item"><a href="#" class="bar__link"></a></li>
-			<li class="bar__item"><a href="#" class="bar__link"></a></li>
-			<li class="bar__item"><a href="#six" class="bar__link"></a></li>
-			<li class="bar__item"><a href="#" class="bar__link"></a></li>
-			<li class="bar__item"><a href="#" class="bar__link"></a></li>
+			<li class="bar__item active"><a href="#" class="bar__link" data-scroll-to="0"></a></li>
+			<li class="bar__item"><a href="#two" class="bar__link" data-scroll-to="1"></a></li>
+			<li class="bar__item"><a href="#" class="bar__link" data-scroll-to="2"></a></li>
+			<li class="bar__item"><a href="#" class="bar__link" data-scroll-to="3"></a></li>
+			<li class="bar__item"><a href="#" class="bar__link" data-scroll-to="4"></a></li>
+			<li class="bar__item"><a href="#six" class="bar__link" data-scroll-to="5"></a></li>
+			<li class="bar__item"><a href="#" class="bar__link" data-scroll-to="6"></a></li>
+			<li class="bar__item"><a href="#" class="bar__link" data-scroll-to="7"></a></li>
+			<li class="bar__item"><a href="#" class="bar__link" data-scroll-to="8"></a></li>
 		</ul>
+		<div class="overlay-modal" id="overlay-modal">
+			<div class="modal-feedback">
+				<a href="#" class="modal-feedback__close">
+					<svg class="modal__close-btn">
+						<use xlink:href="img/sprite.svg#close"></use>
+					</svg>
+				</a>
+				<div class="modal-feedback__inner">
+					<div class="modal-feedback__title"></div>
+					<div class="modal-feedback__content"></div>
+				</div>
+			</div>
+		</div>
 
 	</div>
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>

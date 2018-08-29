@@ -65,18 +65,18 @@ $(document).ready(function() {
 
       personName.addEventListener("click", function(e) {
         e.preventDefault();
-        let activePerson = document.querySelector(".team__accordeon-item.is-active");
+        let activePerson = document.querySelector(".team__accordeon-item.is-active-ha");
 
         if (activePerson) {
           let teamAccordeonDesc = activePerson.querySelector(".team__accordeon-desc")
 
           teamAccordeonDesc.style.height = "0px";
-          activePerson.classList.remove("is-active");
+          activePerson.classList.remove("is-active-ha");
         }
 
         if (!activePerson || activePerson.querySelector(".team__accordeon-link") !== this) {
           let currentPerson = this.closest(".team__accordeon-item");
-          currentPerson.classList.add("is-active");
+          currentPerson.classList.add("is-active-ha");
 
           let currentPersonInfo = currentPerson.querySelector(".team__accordeon-desc");
           currentPersonInfo.style.height = currentPersonInfo.scrollHeight + "px";
@@ -123,6 +123,24 @@ $(document).ready(function() {
   };
   verticalAcco();
 
+  let ingredientsVisible = () => {
+    let ingredients = $(".ingredients");
+    $(".ingredients__close").on("click touchstart", e => {
+      e.preventDefault();
+      ingredients.removeClass("ingredients--active");
+    });
+
+    ingredients.on({
+      mouseenter() {
+        $(this).addClass("ingredients--active");
+      },
+      mouseleave() {
+        $(this).removeClass("ingredients--active");
+      }
+    });
+  };
+  ingredientsVisible();
+
   /*Slider*/
   let owlCarousel = () => {
     const burgerCarousel = $(".slider__list").owlCarousel({
@@ -152,7 +170,7 @@ $(document).ready(function() {
     $('.overlay-modal').show();
     $('.modal-feedback__content').text('Мысли все о них и о них, о них и о них. Нельзя устоять, невозможно забыть... Никогда не думал, что булочки могут быть такими мягкими, котлетка такой сочной, а сыр таким расплавленным. Мысли все о них и о них, о них и о них. Нельзя устоять, невозможно забыть... Никогда не думал, что булочки могут быть такими мягкими, котлетка такой сочной, а сыр таким расплавленным.');
     $('.modal-feedback__title').text('Константин спилберг');
-    // $("html,body").css("overflow","hidden");
+    /*$("html,body").css("overflow","hidden");*/
   });
   $('.modal-feedback__close').on("click", function(e){
     e.preventDefault();
@@ -202,6 +220,7 @@ $(document).ready(function() {
       }
     });
   }
+  
   let myform = document.querySelector('#mainform');
   myform.addEventListener('submit', submitForm);
 
@@ -261,7 +280,124 @@ $(document).ready(function() {
 
     myMap.behaviors.disable("scrollZoom");
   }
+  
+  /*OnePageScroll*/
 
+  var md = new MobileDetect(window.navigator.userAgent), //Подключаем модуль определения устройства
+    isMobile = md.mobile(); // в переменную isMobile попадет либо true либо false
+
+  let OnePageScroll = function() {
+    const sections = $(".section");
+    const visible = $("#content");
+    let inscroll = false;
+
+    let performTransition = function(sectionEq) {
+      //функция которая прокручивает через translateY к еужной секции
+      // if (inscroll) return
+      if (!inscroll) {
+        inscroll = true;
+
+        let position = sectionEq * -100 + "%";
+
+        sections
+          .eq(sectionEq)
+          .addClass("is-active")
+          .siblings()
+          .removeClass("is-active");
+
+        visible.css({
+          transform: `translateY(${position})`,
+          "-webkit-transform": `translateY(${position})`
+        });
+
+        setTimeout(function() {
+          //Делаем задержку в 1s, пока функция setTimeout не выполнится inscroll будет равен true
+          inscroll = false;
+
+          $(".bar__item")
+            .eq(sectionEq)
+            .addClass("active")
+            .siblings()
+            .removeClass("active");
+        }, 1000); // подождать пока завершится инерция на тачпадах
+      }
+    };
+
+    let defineSections = function(sections) {
+      //определяем активный раздел, и двух его соседей
+      let activeSection = sections.filter(".is-active");
+      return {
+        activeSection: activeSection,
+        nextSection: activeSection.next(),
+        prevSection: activeSection.prev()
+      };
+    };
+
+    let scrollToSection = function(direction) {
+      //запускаем прокрутку в зависомости от значения direction, определяем это значение через событие wheel ниже
+      let section = defineSections(sections);
+
+      if (direction === "up" && section.nextSection.length) {
+        //скроллим вниз
+        performTransition(section.nextSection.index());
+      }
+
+      if (direction === "down" && section.prevSection.length) {
+        //спроллим вверх
+        performTransition(section.prevSection.index());
+      }
+    };
+
+    $(".wrapper").on({
+      //по событию wheel в зависимости как изменяется deltaY мы понимаем прокрутили вверх колесиком или в низ.
+      wheel: function(e) {
+        const deltaY = e.originalEvent.deltaY;
+        // console.log(deltaY)
+        const direction = deltaY > 0 ? "up" : "down";
+
+        scrollToSection(direction);
+      },
+      touchmove: e => e.preventDefault()
+    });
+    
+    // разрешаем свайп на мобильниках
+    if (isMobile) {
+      $(window).swipe({
+        swipe: (event, direction) => {
+          scrollToSection(direction);
+        }
+      });
+    }
+
+    $(document).on("keydown", e => {
+      //Обрабатываем нажатие клавиш вниз и вверх при этом проверяем крайние секции
+      const section = defineSections(sections);
+
+      switch (e.keyCode) {
+        case 40: // up
+          // console.log(section.nextSection.length)
+          if (section.nextSection.length) {
+            performTransition(section.nextSection.index());
+          }
+          break;
+
+        case 38: // down
+          //console.log(section.prevSection.length)
+          if (section.prevSection.length) {
+            performTransition(section.prevSection.index());
+            break;
+          }
+      }
+    });
+
+    // клики по кнопкам навигации
+    $("[data-scroll-to]").on("click", e => {
+      e.preventDefault();
+      performTransition(parseInt($(e.target).data("scroll-to")));
+    });
+  };
+
+  OnePageScroll();
 });
 
 let video;
@@ -304,7 +440,7 @@ $().ready(function(){
     soundControl.max = 10;
     // присваиваем ползунку максимальное значение
     soundControl.value = soundControl.max;
-    
+
 });
 
 /*
