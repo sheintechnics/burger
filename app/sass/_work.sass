@@ -1,0 +1,116 @@
+.work
+	background-image: url(../img/work/work-bg.jpg)
+	background-size: cover
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+
+.work__title
+	color: $title-dark
+	font-family: 'Gagalin'
+	margin-top: 83px
+	text-align: center
+
+.video__container
+	height: 100vh
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+
+.video__player
+	position: relative
+	max-width: 660px
+
+.video__player-img
+	position: absolute
+	top: 50%
+	left: 50%
+	margin: auto
+	transform: translate(-50%,-50%)
+	cursor: pointer
+
+.video__player-img--active
+	opacity: 0
+
+#player
+	min-width: 660px
+	max-width: 660px
+	min-height: 370px
+	max-height: 370px
+	background-color: $dark-active
+	@include phones
+		min-width: 460px
+		max-width: 460px
+	@include smallphones
+		min-width: 370px
+		max-width: 370px
+
+.video__toolbar
+	width: 660px
+	height: 35px
+	background-color: $dark
+	margin-top: -3px
+	display: flex
+	@include phones
+		width: 460px
+		margin-top: -5px
+	@include smallphones
+		width: 370px
+		margin-top: -3px
+
+.duration
+	display: flex
+	align-items: center
+
+.duration__img
+	padding: 5px 20px
+	cursor: pointer
+
+.duration__length
+	width: 444px
+	height: 4px
+	border-radius: 1px
+	background-color: $dark2
+	-webkit-appearance: none
+	appearance: none
+	outline: none
+	@include phones
+		width: 200px
+	@include smallphones
+		width: 150px
+
+.duration__length--other
+	width: 58px
+	height: 4px
+
+.duration__length::-webkit-slider-thumb
+	-webkit-appearance: none
+	appearance: none
+	background: $dark2
+	cursor: pointer
+	width: 13px
+	height: 13px
+	border-radius: 50%
+
+.duration__circle
+	cursor: pointer
+	display: block
+
+.duration__circle--high
+	right: 0
+	position: absolute
+
+.sound
+	display: flex
+	align-items: center
+	padding-left: 30px
+
+.sound__mic
+	cursor: pointer
+
+.sound__volume
+	margin-left: 30px
+	margin-bottom: 5px
+
