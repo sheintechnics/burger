@@ -2,6 +2,8 @@
 	position: fixed
 	top: 90px
 	right: 50px
+	@include tablets
+		display: none
 
 
 .bar__item
@@ -42,4 +44,9 @@
 	height: 16px
 	opacity: 1
 
+.active
+	.bar__link:before
+		width: 16px
+		height: 16px
+		opacity: 1
 
